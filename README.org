@@ -1,0 +1,99 @@
+#+PROPERTY: HEADER-ARGS:DASH+ :exports results
+
+* Examples
+
+** Simple example
+
+#+begin_src latex-doc :tangle ~/e/main.txt
+bar
+#+end_src
+
+#+begin_src dash
+cat main.tex
+#+end_src
+
+#+RESULTS:
+#+begin_example
+%% This file is intended to be compiled by executing the following
+%% commands:
+%% $ pdflatex {filename}
+
+\documentclass{standalone}
+
+\begin{document}
+
+foo
+
+\end{document}
+#+end_example
+
+** All header arguments
+
+#+HEADER: :class beamer
+#+HEADER: :package a b c
+#+HEADER: :prologue prologue
+#+HEADER: :epilogue epilogue
+#+HEADER: :preamble preamble
+#+HEADER: :compile xelatex -shell-escape && biber --nolog && xelatex -shell-escape
+#+HEADER: :eval no
+#+BEGIN_SRC latex-doc
+content
+#+END_SRC
+
+#+begin_src dash
+cat main.tex
+#+end_src
+
+#+RESULTS:
+#+begin_example
+%% This file is intended to be compiled by executing the following
+%% commands:
+%% $ xelatex -shell-escape {filename}
+%% $ biber --nolog {filename}
+%% $ xelatex -shell-escape {filename}
+
+prologue
+
+\documentclass{beamer}
+
+\usepackage{a}
+\usepackage{b}
+\usepackage{c}
+
+preamble
+
+\begin{document}
+
+content
+
+\end{document}
+
+epilogue
+#+end_example
+
+** No header arguments
+
+Let's say that you feel overwhelming by the amount of header arguments that =latex-doc= provides. If you want any of those header arguments to affect your code block, but you still want to =C-c C-c= into =latex-doc= code blocks, then just set the =:expand= header argument to =no=.
+
+#+HEADER: :expand no
+#+begin_src latex-doc
+\documentclass{article}
+
+\begin{document}
+foo
+\end{document}
+#+end_src
+
+#+begin_src dash
+cat main.tex
+#+end_src
+
+#+RESULTS:
+#+begin_example
+\documentclass{article}
+
+\begin{document}
+foo
+\end{document}
+#+end_example
+
