@@ -1,5 +1,3 @@
-;; -*- buffer-read-only: t -*-
-
 (defcustom ob-tex-doc-default-compile "pdflatex"
   "Default TeX compiler")
 
