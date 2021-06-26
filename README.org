@@ -1,18 +1,20 @@
 #+PROPERTY: HEADER-ARGS:DASH+ :exports results
+#+PROPERTY: HEADER-ARGS:DASH+ :dir /tmp/
+#+PROPERTY: HEADER-ARGS:TEX-DOC+ :tangle /tmp/main.tex
 
 * Examples
 
-** Simple example
+To understand this section, we recommend viewing this file as raw text.
 
-#+HEADER: :tangle /tmp/main.tex
-#+begin_src tex-doc
+** Simple examples
+
+#+BEGIN_SRC tex-doc
 bar
-#+end_src
+#+END_SRC
 
-#+HEADER: :dir /tmp/
-#+begin_src dash  
+#+BEGIN_SRC dash
 cat main.tex
-#+end_src
+#+END_SRC
 
 #+RESULTS:
 #+begin_example
@@ -32,18 +34,35 @@ bar
 We don't necessarily need to use LaTeX. This package is intended for all flavours of TeX!
 
 #+HEADER: :compile tex
-#+HEADER: :expand no
+#+HEADER: :enclose no
+#+HEADER: :class no
 #+begin_src tex-doc
-fizz \end
+foo \end
 #+end_src
 
+#+begin_src dash  
+cat main.tex
+#+end_src
+
+#+RESULTS:
+#+begin_example
+%% This file is intended to be compiled by executing the following
+%% commands:
+%% $ tex {filename}
+
+foo \end
+#+end_example
+
 ** All header arguments
+
+The following example shows how a single line produces a full document.
 
 #+HEADER: :class beamer
 #+HEADER: :package a b c
 #+HEADER: :prologue prologue
 #+HEADER: :epilogue epilogue
 #+HEADER: :preamble preamble
+#+HEADER: :comment yes
 #+HEADER: :compile xelatex -shell-escape && biber --nolog && xelatex -shell-escape
 #+HEADER: :eval no
 #+BEGIN_SRC tex-doc
@@ -85,26 +104,19 @@ epilogue
 
 Let's say that you feel overwhelming by the amount of header arguments that =tex-doc= provides. If you want any of those header arguments to affect your code block, but you still want to =C-c C-c= into =tex-doc= code blocks, then just set the =:expand= header argument to =no=.
 
+#+HEADER: :compile tex
 #+HEADER: :expand no
-#+begin_src tex-doc
-\documentclass{article}
+#+BEGIN_SRC tex-doc
+foo \end
+#+END_SRC
 
-\begin{document}
-foo
-\end{document}
-#+end_src
-
-#+begin_src dash
+#+BEGIN_SRC dash
 cat main.tex
-#+end_src
+#+END_SRC
 
 #+RESULTS:
 #+begin_example
-\documentclass{article}
-
-\begin{document}
-foo
-\end{document}
+foo \end
 #+end_example
 
 * Supported header arguments
