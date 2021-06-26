@@ -46,7 +46,7 @@ remove unintended files."
     t))
 
 (defun ob-tex-doc-temp-dir-clean ()
-  (unless (ob-tex-doc-temp-dir-is-tmp)
+  (unless (ob-tex-doc-temp-dir-in-tmp)
     (error "Value of ob-tex-doc-temp-dir is not under /tmp/. Not
     proceeding to delete files."))
 
