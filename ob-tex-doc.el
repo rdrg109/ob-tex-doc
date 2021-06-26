@@ -151,3 +151,5 @@ be deleted is under the /tmp/ directory."
       '((:results . "silent")))
 
 (add-to-list 'org-src-lang-modes '("tex-doc" . latex))
+
+(provide 'ob-tex-doc)
