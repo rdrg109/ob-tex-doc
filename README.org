@@ -107,3 +107,24 @@ foo
 \end{document}
 #+end_example
 
+* Supported header arguments
+
++ =:prologue=
+  + Not documented because already documented in the Org Mode manual.
++ =:epilogue=
+  + Not documented because already documented in the Org Mode manual.
++ =:class=
+  + A string that is used in =\documentclass{...}=.
++ =:preamble=
+  + A string that is located after the =\documentclass= and before the =document= environment.
++ =:enclose=
+  + Defines whether the content of the code block need to be enclosed within the =document= environment.
++ =:package=
+  + Defines the package that need to be included in the file.
++ =:compile=
+  + Defines the compilation steps for compiling the document.
++ =:comment=
+  + Defines whether comment with compilation instructions need to be included in the tangled file.
++ =:expand=
+  + Defines whether all the other header arguments must take effect.
+
