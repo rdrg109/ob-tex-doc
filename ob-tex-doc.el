@@ -33,9 +33,12 @@ the main.pdf file in that directory."
   (unless ob-tex-doc-temp-dir
     (setq ob-tex-doc-temp-dir (make-temp-file "babel-" t))))
 
-(defun ob-tex-doc-temp-dir-is-safe ()
-  "Check that the directory which contain the files that are going to
-be deleted is under the /tmp/ directory."
+(defun ob-tex-doc-temp-dir-in-tmp ()
+  "Check directory, which contain the files that are generated
+when compiling, is under the /tmp/ directory.
+
+This is done to ensure that `ob-tex-doc-temp-dir-clean' doesn't
+remove unintended files."
   ;; TODO: Check directory doesn't contain symbolic links.
   (if (or (not (string-match "^/tmp/" ob-tex-doc-temp-dir))
 	  (string-match "/../" ob-tex-doc-temp-dir))
@@ -43,9 +46,9 @@ be deleted is under the /tmp/ directory."
     t))
 
 (defun ob-tex-doc-temp-dir-clean ()
-  (unless (ob-tex-doc-temp-dir-is-safe)
-    (error "Value of ob-tex-doc-temp-dir is not considered
-    safe. Not proceeding to delete files."))
+  (unless (ob-tex-doc-temp-dir-is-tmp)
+    (error "Value of ob-tex-doc-temp-dir is not under /tmp/. Not
+    proceeding to delete files."))
 
   ;; TODO: Include directories since some packages create them such as
   ;; minted.
