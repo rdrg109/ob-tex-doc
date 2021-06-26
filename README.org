@@ -9,7 +9,6 @@ This Org Babel implementation is aimed to people who
 + likes experimenting with TeX
 + likes playing with TeX
 + take notes on TeX (this doesn't mean using TeX on their notes)
-+ want to have a 
 
 The gif shown below shows the features of this package.
 
