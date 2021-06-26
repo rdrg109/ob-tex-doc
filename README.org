@@ -2,6 +2,18 @@
 #+PROPERTY: HEADER-ARGS:DASH+ :dir /tmp/
 #+PROPERTY: HEADER-ARGS:TEX-DOC+ :tangle /tmp/main.tex
 
+* Introduction
+
+This Org Babel implementation is aimed to people who
+
++ likes experimenting with TeX
++ likes playing with TeX
++ take notes on TeX (this doesn't mean using TeX on their notes)
+
+The gif shown below shows the features of this package.
+
+[[file:./img/1.gif]]
+
 * Examples
 
 To understand this section, we recommend viewing this file as raw text.
