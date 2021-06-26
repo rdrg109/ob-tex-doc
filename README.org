@@ -9,14 +9,19 @@ This Org Babel implementation is aimed to people who
 + likes experimenting with TeX
 + likes playing with TeX
 + take notes on TeX (this doesn't mean using TeX on their notes)
++ want to have a 
 
 The gif shown below shows the features of this package.
 
 [[file:./img/1.gif]]
 
+* Warning
+
+This package has only been tested in Linux, you mustn't use this package in Windows. The reason of this warning is because there is a function which recursively delete files (an operation with possible undesirable effects if not executed the right way) in a directory and, for the time being, there are only checks for files located at =/tmp/= (i.e. the path is hardcoded since I hadn't have enough time to test this package on Windows).
+
 * Examples
 
-To understand this section, we recommend viewing this file as raw text.
+To understand this section, we recommend viewing this file as raw text. If possible, with a Emacs version that is bundled with Org Mode.
 
 ** Simple examples
 
