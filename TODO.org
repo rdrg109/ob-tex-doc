@@ -1,0 +1,5 @@
+* DONE Header argument for omiting documentation string at the beginning of the file
+:LOGBOOK:
+- State "DONE" from "TODO" [2021-06-26 Sat 07:03]
+- State "TODO" from  [2021-06-22 Tue 22:02]
+:END:
