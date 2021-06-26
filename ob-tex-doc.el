@@ -89,7 +89,7 @@ be deleted is under the /tmp/ directory."
 		(split-string package " " t))
 	       "\n")))
 
-      (if (equal class "none")
+      (if (equal class "no")
 	  (setq class nil)
 	(setq class (concat "\\documentclass{"
 			    (or class ob-tex-doc-default-documentclass)
