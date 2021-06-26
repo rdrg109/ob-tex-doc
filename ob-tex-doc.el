@@ -69,20 +69,23 @@ remove unintended files."
 	  (enclose (cdr (assq :enclose params)))
 	  (package (cdr (assq :package params)))
 	  (compile (cdr (assq :compile params)))
+	  (comment (cdr (assq :comment params)))
 	  content)
 
-      (unless compile
-	(setq compile ob-tex-doc-default-compile))
-      
-      (when compile
-	(setq compile
-	      (string-join
-	       `("%% This file is intended to be compiled by executing the following"
-		 "%% commands:"
-		 ,@(seq-map
-		    (lambda (x) (concat "%% $ " (string-trim x) " {filename}"))
-		    (split-string compile ob-tex-doc-compile-separator t)))
-	       "\n")))
+      (if (equal comment "no")
+	  (setq compile nil)
+	(progn
+	  (unless compile
+	    (setq compile ob-tex-doc-default-compile))
+	  
+	  (setq compile
+		(string-join
+		 `("%% This file is intended to be compiled by executing the following"
+		   "%% commands:"
+		   ,@(seq-map
+		      (lambda (x) (concat "%% $ " (string-trim x) " {filename}"))
+		      (split-string compile ob-tex-doc-compile-separator t)))
+		 "\n"))))
 
       (when package
 	(setq package
@@ -156,3 +159,4 @@ remove unintended files."
 (add-to-list 'org-src-lang-modes '("tex-doc" . latex))
 
 (provide 'ob-tex-doc)
+ 
