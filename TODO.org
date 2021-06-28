@@ -27,7 +27,6 @@ The header argument was implemented with the name =:comment= and someone should 
 :PROPERTIES:
 :CUSTOM_ID: 3
 :END:
-
 :LOGBOOK:
 - State "TODO" from  [2021-06-28 Mon 01:29]
 :END:
@@ -36,3 +35,12 @@ The header argument was implemented with the name =:comment= and someone should 
 :LOGBOOK:
 - State "TODO" from  [2021-06-28 Mon 01:29]
 :END:
+
+* TODO Rename =compile= header argument to =cmd= to reduce the number of characters
+:PROPERTIES:
+:CUSTOM-ID: 4
+:END:
+:LOGBOOK:
+- State "TODO" from  [2021-06-28 Mon 02:27]
+:END:
+
