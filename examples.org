@@ -1,0 +1,39 @@
+* TeX
+* PDFLaTeX
+
+The following inserts a table.
+
+#+begin_src tex-doc
+\begin{table}
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline a & b
+    \\ \hline c & d
+    \\ \hline
+  \end{tabular}
+\end{table}
+#+end_src
+
+The following inserts a paragraph.
+
+#+HEADER: :package lipsum
+#+begin_src tex-doc
+\lipsum[1]
+#+end_src
+
+The following inserts a code block.
+
+#+HEADER: :package minted
+#+HEADER: :compile pdflatex -shell-escape
+#+begin_src tex-doc
+
+\begin{minted}{python}
+class Person:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+\end{minted}
+#+end_src
+
+* XeLaTeX
+* LuaLaTeX
