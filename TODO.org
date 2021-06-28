@@ -18,7 +18,7 @@ The header argument was implemented with the name =:comment= and someone should 
 - State "TODO" from  [2021-06-26 Sat 17:30]
 :END:
 
-* DONE Rename =compile= header argument to =cmd= to reduce the number of characters
+* DONE Rename =compile= header argument to =cmd=
 :PROPERTIES:
 :CUSTOM-ID: 4
 :END:
@@ -27,7 +27,22 @@ The header argument was implemented with the name =:comment= and someone should 
 - State "TODO" from  [2021-06-28 Mon 02:27]
 :END:
 
+This is done to reduce the number of characters.
+
+* TODO Rename =package= header argument to =pkg=
+:PROPERTIES:
+:CUSTOM_ID: 6
+:END:
+:LOGBOOK:
+- State "TODO" from  [2021-06-28 Mon 02:35]
+:END:
+
+This is done to reduce the number of characters.
+
 * TODO Add =after-begin= and =before-end= header arguments
+:PROPERTIES:
+:CUSTOM_ID: 5
+:END:
 :LOGBOOK:
 - State "TODO" from  [2021-06-26 Sat 17:30]
 :END:
