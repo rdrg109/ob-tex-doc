@@ -18,6 +18,15 @@ The header argument was implemented with the name =:comment= and someone should 
 - State "TODO" from  [2021-06-26 Sat 17:30]
 :END:
 
+* DONE Rename =compile= header argument to =cmd= to reduce the number of characters
+:PROPERTIES:
+:CUSTOM-ID: 4
+:END:
+:LOGBOOK:
+- State "DONE" from "TODO" [2021-06-28 Mon 02:34]
+- State "TODO" from  [2021-06-28 Mon 02:27]
+:END:
+
 * TODO Add =after-begin= and =before-end= header arguments
 :LOGBOOK:
 - State "TODO" from  [2021-06-26 Sat 17:30]
@@ -34,13 +43,5 @@ The header argument was implemented with the name =:comment= and someone should 
 ** TODO How should we handle documents with more than one page?
 :LOGBOOK:
 - State "TODO" from  [2021-06-28 Mon 01:29]
-:END:
-
-* TODO Rename =compile= header argument to =cmd= to reduce the number of characters
-:PROPERTIES:
-:CUSTOM-ID: 4
-:END:
-:LOGBOOK:
-- State "TODO" from  [2021-06-28 Mon 02:27]
 :END:
 

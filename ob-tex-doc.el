@@ -1,22 +1,22 @@
-(defcustom ob-tex-doc-default-compile "pdflatex"
-  "Default TeX compiler")
+(defcustom ob-tex-doc-default-cmd "pdflatex"
+  "Default TeX compiler command")
 
 (defcustom ob-tex-doc-default-documentclass "standalone"
   "Default document class")
 
-(defcustom ob-tex-doc-compile-separator "&&"
-  "Separator for the commands provided through the :compile header
+(defcustom ob-tex-doc-cmd-separator "&&"
+  "Separator for the commands provided through the :cmd header
   argument.")
 
-(defun ob-tex-doc-build-command (compile)
-  "Given the content of the :compile header argument. A one-liner
+(defun ob-tex-doc-build-command (cmd)
+  "Given the content of the :cmd header argument. A one-liner
 for executing all those commands is returned."
   (string-join
    (seq-map
     ;; FIXME: Use shell-quote-argument wisely. Recall that flags are
-    ;; also included in the compile argument.
+    ;; also included in the cmd argument.
     (lambda (x) (concat (string-trim x) " main"))
-    (split-string compile ob-tex-doc-compile-separator t))
+    (split-string cmd ob-tex-doc-cmd-separator t))
    " && "))
 
 (defvar ob-tex-doc-temp-dir nil
@@ -69,23 +69,23 @@ remove unintended files."
 	  (enclose (cdr (assq :enclose params)))
 	  (package (cdr (assq :package params)))
 	  (env (cdr (assq :env params)))
-	  (compile (cdr (assq :compile params)))
+	  (cmd (cdr (assq :cmd params)))
 	  (comment (cdr (assq :comment params)))
 	  content)
 
       (if (equal comment "no")
-	  (setq compile nil)
+	  (setq cmd nil)
 	(progn
-	  (unless compile
-	    (setq compile ob-tex-doc-default-compile))
+	  (unless cmd
+	    (setq cmd ob-tex-doc-default-cmd))
 	  
-	  (setq compile
+	  (setq cmd
 		(string-join
 		 `("%% This file is intended to be compiled by executing the following"
 		   "%% commands:"
 		   ,@(seq-map
 		      (lambda (x) (concat "%% $ " (string-trim x) " {filename}"))
-		      (split-string compile ob-tex-doc-compile-separator t)))
+		      (split-string cmd ob-tex-doc-cmd-separator t)))
 		 "\n"))))
 
       (when package
@@ -113,7 +113,7 @@ remove unintended files."
 						   "\\end{document}"))
 					"\n\n"))))
       
-      (setq content `(,compile
+      (setq content `(,cmd
 		      ,prologue
 		      ,class
 		      ,package
@@ -128,15 +128,15 @@ remove unintended files."
       (string-join content "\n\n"))))
 
 (defun org-babel-execute:tex-doc (body params)
-  (let ((compile (cdr (assq :compile params)))
+  (let ((cmd (cdr (assq :cmd params)))
 	command)
 
     (ob-tex-doc-set-temp-dir)
 
-    (unless compile
-      (setq compile ob-tex-doc-default-compile))
+    (unless cmd
+      (setq cmd ob-tex-doc-default-cmd))
     
-    (setq compile (ob-tex-doc-build-command compile))
+    (setq cmd (ob-tex-doc-build-command cmd))
 
     (let ((buffer-name "*Async Shell Command* (tex-doc)")
 	  (async-shell-command-buffer 'confirm-kill-process)
@@ -156,8 +156,8 @@ remove unintended files."
 	(call-interactively 'org-babel-tangle))
       
       ;; Compile the document
-      (message "Executing %s" compile)
-      (async-shell-command compile buffer-name))))
+      (message "Executing %s" cmd)
+      (async-shell-command cmd buffer-name))))
 
 (setq org-babel-default-header-args:tex-doc
       '((:results . "silent")))
