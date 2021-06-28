@@ -1,5 +1,27 @@
 * DONE Header argument for omiting documentation string at the beginning of the file
 :LOGBOOK:
-- State "DONE" from "TODO" [2021-06-26 Sat 07:03]
+- state "DONE" from "TODO" [2021-06-26 Sat 07:03]
 - State "TODO" from  [2021-06-22 Tue 22:02]
+:END:
+
+The header argument was implemented with the name =:comment= and someone should set it to =no=, if not having the comment is desired.
+
+* TODO Add =after-begin= and =before-end= header arguments
+:LOGBOOK:
+- State "TODO" from  [2021-06-26 Sat 17:30]
+:END:
+
+* TODO Add =environment= header argument
+:LOGBOOK:
+- State "TODO" from  [2021-06-26 Sat 17:30]
+:END:
+
+* TODO Generate images of the document
+:LOGBOOK:
+- State "TODO" from  [2021-06-28 Mon 01:29]
+:END:
+
+** TODO How should we handle documents with more than one page?
+:LOGBOOK:
+- State "TODO" from  [2021-06-28 Mon 01:29]
 :END:
