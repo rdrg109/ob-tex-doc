@@ -68,6 +68,7 @@ remove unintended files."
 	  (preamble (cdr (assq :preamble params)))
 	  (enclose (cdr (assq :enclose params)))
 	  (package (cdr (assq :package params)))
+	  (env (cdr (assq :env params)))
 	  (compile (cdr (assq :compile params)))
 	  (comment (cdr (assq :comment params)))
 	  content)
@@ -100,12 +101,17 @@ remove unintended files."
 	(setq class (concat "\\documentclass{"
 			    (or class ob-tex-doc-default-documentclass)
 			    "}")))
-      
+
       (setq body (if (equal enclose "no")
 		     body
-		   (concat (string-join `("\\begin{document}"
-					  ,body
-					  "\\end{document}") "\n\n"))))
+		   (concat (string-join `(,(concat "\\begin{document}"
+						   (unless (equal env "no")
+						     (concat "\n\\begin{" env "}")))
+					  ,(replace-regexp-in-string "^" "  " body)
+					  ,(concat (unless (equal env "no")
+						     (concat "\\end{" env "}\n"))
+						   "\\end{document}"))
+					"\n\n"))))
       
       (setq content `(,compile
 		      ,prologue

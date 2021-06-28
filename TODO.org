@@ -1,22 +1,33 @@
-* DONE Header argument for omiting documentation string at the beginning of the file
+* DONE Add header argument for omiting documentation string at the beginning of the expansion
+:PROPERTIES:
+:CUSTOM_ID: 1
+:END:
 :LOGBOOK:
-- state "DONE" from "TODO" [2021-06-26 Sat 07:03]
+- State "DONE" from "TODO" [2021-06-26 Sat 07:03]
 - State "TODO" from  [2021-06-22 Tue 22:02]
 :END:
 
 The header argument was implemented with the name =:comment= and someone should set it to =no=, if not having the comment is desired.
+
+* DONE Add header argument for enclosing the body in an environment
+:PROPERTIES:
+:CUSTOM_ID: 2
+:END:
+:LOGBOOK:
+- State "DONE" from "TODO" [2021-06-28 Mon 02:25]
+- State "TODO" from  [2021-06-26 Sat 17:30]
+:END:
 
 * TODO Add =after-begin= and =before-end= header arguments
 :LOGBOOK:
 - State "TODO" from  [2021-06-26 Sat 17:30]
 :END:
 
-* TODO Add =environment= header argument
-:LOGBOOK:
-- State "TODO" from  [2021-06-26 Sat 17:30]
+* TODO Generate images of the document
+:PROPERTIES:
+:CUSTOM_ID: 3
 :END:
 
-* TODO Generate images of the document
 :LOGBOOK:
 - State "TODO" from  [2021-06-28 Mon 01:29]
 :END:
