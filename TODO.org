@@ -1,4 +1,4 @@
-* DONE Add header argument for omiting documentation string at the beginning of the expansion
+* DONE Define =comment= header argument for omiting documentation string at the beginning of the expansion
 :PROPERTIES:
 :CUSTOM_ID: 1
 :END:
@@ -9,7 +9,7 @@
 
 The header argument was implemented with the name =:comment= and someone should set it to =no=, if not having the comment is desired.
 
-* DONE Add header argument for enclosing the body in an environment
+* DONE Define =enclose= header argument for enclosing the body in an environment
 :PROPERTIES:
 :CUSTOM_ID: 2
 :END:
