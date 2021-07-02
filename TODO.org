@@ -40,8 +40,9 @@ This is done to reduce the number of characters.
 
 This is done to reduce the number of characters.
 
-* TODO Rename =class= header argument to =cls=
+* DONE Rename =class= header argument to =cls=
 :LOGBOOK:
+- State "DONE" from "TODO" [2021-07-01 Thu 23:35]
 - State "TODO" from  [2021-07-01 Thu 23:34]
 :END:
 :PROPERTIES:

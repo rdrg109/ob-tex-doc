@@ -64,7 +64,7 @@ remove unintended files."
     
     (let ((prologue (cdr (assq :prologue params)))
 	  (epilogue (cdr (assq :epilogue params)))
-	  (class (cdr (assq :class params)))
+	  (cls (cdr (assq :cls params)))
 	  (preamble (cdr (assq :preamble params)))
 	  (enclose (cdr (assq :enclose params)))
 	  (pkg (cdr (assq :pkg params)))
@@ -96,10 +96,10 @@ remove unintended files."
 		(split-string pkg " " t))
 	       "\n")))
 
-      (if (equal class "no")
-	  (setq class nil)
-	(setq class (concat "\\documentclass{"
-			    (or class ob-tex-doc-default-documentclass)
+      (if (equal cls "no")
+	  (setq cls nil)
+	(setq cls (concat "\\documentclass{"
+			    (or cls ob-tex-doc-default-documentclass)
 			    "}")))
 
       (setq body (if (equal enclose "no")
@@ -115,7 +115,7 @@ remove unintended files."
       
       (setq content `(,cmd
 		      ,prologue
-		      ,class
+		      ,cls
 		      ,pkg
 		      ,preamble
 		      ,body
