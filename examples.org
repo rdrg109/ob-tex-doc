@@ -1,10 +1,10 @@
-* TeX
 * PDFLaTeX
 
 The following inserts a table.
 
-#+HEADER: :cls article
-#+begin_src tex-doc
+#+begin_src org
+,#+HEADER: :cls article
+,#+BEGIN_SRC tex-doc
 \begin{table}
   \centering
   \begin{tabular}{|c|c|}
@@ -13,29 +13,88 @@ The following inserts a table.
     \\ \hline
   \end{tabular}
 \end{table}
+,#+END_SRC
+#+end_src
+
+#+begin_src latex :exports code
+%% This file is intended to be compiled by executing the following
+%% commands:
+%% $ pdflatex {filename}
+
+\documentclass{article}
+
+\begin{document}
+
+\begin{table}
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline a & b
+    \\ \hline c & d
+    \\ \hline
+  \end{tabular}
+\end{table}
+
+\end{document}
 #+end_src
 
 The following inserts a paragraph.
 
-#+HEADER: :cls article
-#+HEADER: :pkg lipsum
-#+begin_src tex-doc
+#+begin_src org
+,#+HEADER: :cls article
+,#+HEADER: :pkg lipsum
+,#+BEGIN_SRC tex-doc
 \lipsum[1]
+,#+END_SRC
 #+end_src
 
-The following inserts a code block.
+#+begin_src latex :exports code
+%% This file is intended to be compiled by executing the following
+%% commands:
+%% $ pdflatex {filename}
 
-#+HEADER: :cls article
-#+HEADER: :pkg minted
-#+HEADER: :cmd pdflatex -shell-escape
-#+begin_src tex-doc
+\documentclass{article}
+
+\usepackage{lipsum}
+
+\begin{document}
+
+\lipsum[1]
+
+\end{document}
+#+end_src
+
+#+begin_src org
+,#+HEADER: :cls article
+,#+HEADER: :pkg minted
+,#+HEADER: :cmd pdflatex -shell-escape
+,#+BEGIN_SRC tex-doc
 \begin{minted}{python}
 class Person:
   def __init__(self, name, age):
     self.name = name
     self.age = age
 \end{minted}
+,#+END_SRC
 #+end_src
 
-* XeLaTeX
-* LuaLaTeX
+#+begin_src latex :exports code
+%% This file is intended to be compiled by executing the following
+%% commands:
+%% $ pdflatex -shell-escape {filename}
+
+\documentclass{article}
+
+\usepackage{minted}
+
+\begin{document}
+
+\begin{minted}{python}
+class Person:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+\end{minted}
+
+\end{document}
+#+end_src
+
