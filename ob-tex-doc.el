@@ -102,18 +102,25 @@ remove unintended files."
 			    (or cls ob-tex-doc-default-documentclass)
 			    "}")))
 
-      (setq body (if (equal enclose "no")
-		     body
-		   (concat (string-join `(,(concat "\\begin{document}"
-						   (unless (or (equal env "no")
-							       (eq env nil))
-						     (concat "\n\\begin{" env "}")))
-					  ,(replace-regexp-in-string "^" "  " body)
-					  ,(concat (unless (or (equal env "no")
-							       (eq env nil))
-						     (concat "\\end{" env "}\n"))
-						   "\\end{document}"))
-					"\n\n"))))
+      (unless (equal enclose "no")
+	(if (or (equal env "no")
+		(eq env nil))
+	    ;; If there is no environment, the body need to have empty
+	    ;; lines before and after it in order for body to be one
+	    ;; line separated from the document environment.
+	    (setq body (concat "\n" body "\n"))
+	  (setq body
+		(string-join (list (concat "\\begin{" env "}")
+				   body
+				   (concat "\\end{" env "}"))
+			     "\n\n")))
+
+	(setq body
+		(string-join (list (concat "\\begin{document}")
+				   body
+				   (concat "\\end{document}"))
+			     "\n")))
+	      
       
       (setq content `(,cmd
 		      ,prologue
