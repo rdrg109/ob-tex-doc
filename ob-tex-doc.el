@@ -67,7 +67,7 @@ remove unintended files."
 	  (class (cdr (assq :class params)))
 	  (preamble (cdr (assq :preamble params)))
 	  (enclose (cdr (assq :enclose params)))
-	  (package (cdr (assq :package params)))
+	  (pkg (cdr (assq :pkg params)))
 	  (env (cdr (assq :env params)))
 	  (cmd (cdr (assq :cmd params)))
 	  (comment (cdr (assq :comment params)))
@@ -88,12 +88,12 @@ remove unintended files."
 		      (split-string cmd ob-tex-doc-cmd-separator t)))
 		 "\n"))))
 
-      (when package
-	(setq package
+      (when pkg
+	(setq pkg
 	      (string-join
 	       (seq-map
 		(lambda (x) (concat "\\usepackage{" x "}"))
-		(split-string package " " t))
+		(split-string pkg " " t))
 	       "\n")))
 
       (if (equal class "no")
@@ -116,7 +116,7 @@ remove unintended files."
       (setq content `(,cmd
 		      ,prologue
 		      ,class
-		      ,package
+		      ,pkg
 		      ,preamble
 		      ,body
 		      ,epilogue))
