@@ -105,10 +105,12 @@ remove unintended files."
       (setq body (if (equal enclose "no")
 		     body
 		   (concat (string-join `(,(concat "\\begin{document}"
-						   (unless (equal env "no")
+						   (unless (or (equal env "no")
+							       (eq env nil))
 						     (concat "\n\\begin{" env "}")))
 					  ,(replace-regexp-in-string "^" "  " body)
-					  ,(concat (unless (equal env "no")
+					  ,(concat (unless (or (equal env "no")
+							       (eq env nil))
 						     (concat "\\end{" env "}\n"))
 						   "\\end{document}"))
 					"\n\n"))))
