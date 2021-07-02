@@ -3,6 +3,7 @@
 
 The following inserts a table.
 
+#+HEADER: :cls article
 #+begin_src tex-doc
 \begin{table}
   \centering
@@ -16,17 +17,18 @@ The following inserts a table.
 
 The following inserts a paragraph.
 
-#+HEADER: :package lipsum
+#+HEADER: :cls article
+#+HEADER: :pkg lipsum
 #+begin_src tex-doc
 \lipsum[1]
 #+end_src
 
 The following inserts a code block.
 
-#+HEADER: :package minted
-#+HEADER: :compile pdflatex -shell-escape
+#+HEADER: :cls article
+#+HEADER: :pkg minted
+#+HEADER: :cmd pdflatex -shell-escape
 #+begin_src tex-doc
-
 \begin{minted}{python}
 class Person:
   def __init__(self, name, age):
