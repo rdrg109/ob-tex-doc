@@ -61,3 +61,11 @@ This is done to reduce the number of characters.
 - State "TODO" from  [2021-06-28 Mon 01:29]
 :END:
 
+* TODO If the first line is =\documentclass{foo}=, =:expand no= needs to be assumed
+:PROPERTIES:
+:CUSTOM_ID: 7
+:END:
+:LOGBOOK:
+- State "TODO" from  [2021-06-30 Wed 17:39]
+:END:
+
