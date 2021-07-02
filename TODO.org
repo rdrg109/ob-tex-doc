@@ -40,6 +40,16 @@ This is done to reduce the number of characters.
 
 This is done to reduce the number of characters.
 
+* TODO Rename =class= header argument to =cls=
+:LOGBOOK:
+- State "TODO" from  [2021-07-01 Thu 23:34]
+:END:
+:PROPERTIES:
+:CUSTOM_ID: 8
+:END:
+
+This is done to reduce the number of characters.
+
 * TODO Add =after-begin= and =before-end= header arguments
 :PROPERTIES:
 :CUSTOM_ID: 5
